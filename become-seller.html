@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Seller | Bazaar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-light: #8B85FF;
+            --secondary: #FF6584;
+            --dark: #2D3748;
+            --light: #F7FAFC;
+            --gray: #A0AEC0;
+            --gray-light: #E2E8F0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .seller-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 30px rgba(108, 99, 255, 0.2);
+        }
+        
+        .seller-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .seller-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .onboarding-container {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+        
+        .onboarding-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        
+        .steps-indicator {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .steps-indicator::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gray-light);
+            z-index: 1;
+        }
+        
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gray-light);
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            border: 3px solid white;
+        }
+        
+        .step.active .step-number {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .step.completed .step-number {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .step.completed .step-number::after {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+        }
+        
+        .step-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray);
+        }
+        
+        .step.active .step-label {
+            color: var(--primary);
+        }
+        
+        .step.completed .step-label {
+            color: var(--primary);
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-header {
+            margin-bottom: 2rem;
+        }
+        
+        .form-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .form-header p {
+            color: var(--gray);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--gray-light);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+            outline: none;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5a52e0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        .btn-outline {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: #f0f5ff;
+        }
+        
+        .confirmation-screen {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .confirmation-icon {
+            font-size: 5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            animation: bounce 1s ease infinite alternate;
+        }
+        
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        
+        .confirmation-screen h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .confirmation-screen p {
+            color: var(--gray);
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .seller-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .onboarding-card {
+                padding: 2rem;
+            }
+            
+            .step-label {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="seller-hero">
+        <h1>Start Selling on Bazaar</h1>
+        <p>Join our community of sellers and reach millions of buyers worldwide. Set up your shop in minutes and start earning today!</p>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Massive Audience</h3>
+                <p>Access to over 10 million active buyers searching for products like yours every day.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Powerful Tools</h3>
+                <p>Advanced analytics and marketing tools to help you grow your business.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Secure Payments</h3>
+                <p>Get paid securely and on time with our protected payment system.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="onboarding-container">
+        <div class="onboarding-card">
+            <div class="steps-indicator">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Account</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Store</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Payment</div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Complete</div>
+                </div>
+            </div>
+            
+            <form id="sellerForm">
+                <!-- Step 1 -->
+                <div class="form-step active" data-step="1">
+                    <div class="form-header">
+                        <h2>Tell us about yourself</h2>
+                        <p>We need some basic information to set up your seller account</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" class="form-control" placeholder="Your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="Your business email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="+1 (___) ___-____" required>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" disabled>Previous</button>
+                        <button type="button" class="btn btn-primary next-step">Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="form-step" data-step="2">
+                    <div class="form-header">
+                        <h2>Set up your store</h2>
+                        <p>Customize your storefront to attract more buyers</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="storeName">Store Name</label>
+                        <input type="text" id="storeName" class="form-control" placeholder="e.g. Fashion Haven" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="storeCategory">What do you sell?</label>
+                        <select id="storeCategory" class="form-control" required>
+                            <option value="">Select category</option>
+                            <option value="fashion">Fashion & Accessories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="home">Home & Garden</option>
+                            <option value="art">Art & Collectibles</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="storeDesc">Store Description</label>
+                        <textarea id="storeDesc" class="form-control" rows="4" placeholder="Tell buyers what makes your store special"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline prev-step">Previous</button>
+                        <button type="button" class="btn btn-primary next-step">Continue</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="form-step" data-step="3">
+                    <div class="form-header">
+                        <h2>Payment Information</h2>
+                        <p>How would you like to get paid?</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Payment Method</label>
+                        <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                            <label style="flex: 1; cursor: pointer;">
+                                <input type="radio" name="paymentMethod" value="bank" checked style="margin-right: 0.5rem;">
+                                Bank Transfer
+                            </label>
+                            <label style="flex: 1; cursor: pointer;">
+                                <input type="radio" name="paymentMethod" value="paypal" style="margin-right: 0.5rem;">
+                                PayPal
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="accountName">Account Holder Name</label>
+                        <input type="text" id="accountName" class="form-control" placeholder="As it appears on your bank account" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="accountNumber">Account Number</label>
+                        <input type="text" id="accountNumber" class="form-control" placeholder="Your account number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="routingNumber">Routing Number</label>
+                        <input type="text" id="routingNumber" class="form-control" placeholder="Your bank's routing number" required>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline prev-step">Previous</button>
+                        <button type="button" class="btn btn-primary next-step">Complete Setup</button>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="form-step" data-step="4">
+                    <div class="confirmation-screen">
+                        <div class="confirmation-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h2>You're All Set!</h2>
+                        <p>Your seller account has been created successfully. We're reviewing your information and will notify you once your store is approved.</p>
+                        <p>In the meantime, you can start setting up your products.</p>
+                        <button type="button" class="btn btn-primary" style="padding: 1rem 3rem; margin-top: 1.5rem;">
+                            Go to Dashboard <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.step');
+            const formSteps = document.querySelectorAll('.form-step');
+            const nextButtons = document.querySelectorAll('.next-step');
+            const prevButtons = document.querySelectorAll('.prev-step');
+            let currentStep = 0;
+            
+            // Initialize
+            showStep(currentStep);
+            
+            // Next button click
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (validateStep(currentStep)) {
+                        currentStep++;
+                        showStep(currentStep);
+                    }
+                });
+            });
+            
+            // Previous button click
+            prevButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    currentStep--;
+                    showStep(currentStep);
+                });
+            });
+            
+            function showStep(stepIndex) {
+                // Update steps indicator
+                steps.forEach((step, index) => {
+                    if (index < stepIndex) {
+                        step.classList.add('completed');
+                        step.classList.remove('active');
+                    } else if (index === stepIndex) {
+                        step.classList.add('active');
+                        step.classList.remove('completed');
+                    } else {
+                        step.classList.remove('active', 'completed');
+                    }
+                });
+                
+                // Show current form step
+                formSteps.forEach((step, index) => {
+                    step.classList.toggle('active', index === stepIndex);
+                });
+                
+                // Update buttons
+                const prevButtons = document.querySelectorAll('.prev-step');
+                prevButtons.forEach(button => {
+                    button.disabled = stepIndex === 0;
+                });
+            }
+            
+            function validateStep(stepIndex) {
+                const currentStep = formSteps[stepIndex];
+                const inputs = currentStep.querySelectorAll('input[required], select[required], textarea[required]');
+                let isValid = true;
+                
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        input.style.borderColor = '#FF6584';
+                        isValid = false;
+                        
+                        // Remove error on input
+                        input.addEventListener('input', function() {
+                            if (this.value.trim()) {
+                                this.style.borderColor = '';
+                            }
+                        });
+                    }
+                });
+                
+                if (!isValid) {
+                    currentStep.querySelector('.form-header').insertAdjacentHTML('afterend', 
+                        '<div class="error-message" style="color: #FF6584; margin-bottom: 1.5rem;">Please fill in all required fields</div>');
+                }
+                
+                return isValid;
+            }
+        });
+    </script>
+</body>
+</html>

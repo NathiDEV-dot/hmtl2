@@ -3,10 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My website/title>
+    <title>Stop&Shop - Vibrant C2C Marketplace</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1> Hello, world</h1>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-store-alt"></i>
+                <span>Stop&Shop</span>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="What are you looking for today?">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-list"></i> Categories</a></li>
+                    <li><a href="#"><i class="fas fa-heart"></i> Saved</a></li>
+                    <li><a href="#"><i class="fas fa-comments"></i> Messages</a></li>
+                    <li><a href="#"><i class="fas fa-user-circle"></i> Account</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Sell What You Don't Need,<br>Find What You Love</h1>
+            <p>Join thousands of buyers and sellers in your community</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">Start Selling</a>
+                <a href="#" class="btn-secondary">Browse Items</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <section class="trending-categories">
+            <h2><i class="fas fa-fire"></i> Trending Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card" style="background-color: #FF9E9E;">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Electronics</span>
+                </div>
+                <div class="category-card" style="background-color: #FFD6A5;">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Fashion</span>
+                </div>
+                <div class="category-card" style="background-color: #CBFFA9;">
+                    <i class="fas fa-couch"></i>
+                    <span>Furniture</span>
+                </div>
+                <div class="category-card" style="background-color: #A0E9FF;">
+                    <i class="fas fa-car"></i>
+                    <span>Vehicles</span>
+                </div>
+                <div class="category-card" style="background-color: #BDB2FF;">
+                    <i class="fas fa-home"></i>
+                    <span>Real Estate</span>
+                </div>
+                <div class="category-card" style="background-color: #FFC6FF;">
+                    <i class="fas fa-baby-carriage"></i>
+                    <span>Baby Items</span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="featured-products">
+            <div class="section-header">
+                <h2><i class="fas fa-bolt"></i> Fresh Listings</h2>
+                <a href="#" class="see-all">See all <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="products-grid">
+                <!-- Product cards will be here -->
+                <div class="product-card">
+                    <div class="product-badge">NEW</div>
+                    <div class="product-image" style="background-image: url('https://via.placeholder.com/300x200/FF9E9E/FFFFFF?text=iPhone+13');">
+                        <div class="product-actions">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">iPhone 13 Pro - Like New</h3>
+                        <div class="product-meta">
+                            <span class="product-price">R14000</span>
+                            <span class="product-location"><i class="fas fa-map-marker-alt"></i> NYC</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="seller-info">
+                                <div class="seller-avatar">JS</div>
+                                <span>John S.</span>
+                            </div>
+                            <span class="product-time">2 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('https://via.placeholder.com/300x200/FFD6A5/FFFFFF?text=Leather+Sofa');">
+                        <div class="product-actions">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Leather Sofa - Excellent Condition</h3>
+                        <div class="product-meta">
+                            <span class="product-price">R1100</span>
+                            <span class="product-location"><i class="fas fa-map-marker-alt"></i> Chicago</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="seller-info">
+                                <div class="seller-avatar">MD</div>
+                                <span>Maria D.</span>
+                            </div>
+                            <span class="product-time">1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- More product cards -->
+            </div>
+        </section>
+        
+        <section class="local-deals">
+            <div class="section-header">
+                <h2><i class="fas fa-map-marker-alt"></i> Hot in Your Area</h2>
+                <div class="location-selector">
+                    <i class="fas fa-map-pin"></i>
+                    <span>Pretoria, Gauteng</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+            <!-- Local deals grid would go here -->
+        </section>
+    </div>
+    
+    <div class="sell-float-btn">
+        <i class="fas fa-plus"></i>
+        <span>Sell</span>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Bazaar</h3>
+                <p>Your community marketplace for buying and selling items locally.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Buy & Sell</h4>
+                <ul>
+                    <li><a href="#">How it works</a></li>
+                    <li><a href="#">Safety tips</a></li>
+                    <li><a href="#">Popular items</a></li>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Bazaar. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

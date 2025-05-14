@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard | Stop&Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="seller.css">
+</head>
+<body>
+    <header class="seller-header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-store-alt"></i>
+                <span>Stop&Shop Seller</span>
+            </div>
+            <nav class="seller-nav">
+                <ul>
+                    <li><a href="seller-dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="seller-products.html"><i class="fas fa-box-open"></i> Products</a></li>
+                    <li><a href="seller-orders.html"><i class="fas fa-receipt"></i> Orders</a></li>
+                    <li><a href="seller-settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="seller-account">
+                <img src="https://via.placeholder.com/40" alt="Profile" class="seller-avatar">
+                <span class="seller-name">Nkosinathi Tshabalala</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="seller-main">
+        <div class="seller-container">
+            <div class="welcome-banner">
+                <div class="welcome-content">
+                    <h1>Welcome to Your Seller Dashboard!</h1>
+                    <p>Start selling your products to thousands of buyers on Stop&Shop</p>
+                    <div class="completion-status">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 65%;"></div>
+                        </div>
+                        <span>65% profile completion</span>
+                    </div>
+                </div>
+                <div class="welcome-image">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Seller">
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="action-grid">
+                    <a href="add-product.html" class="action-card">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Add New Product</span>
+                    </a>
+                    <a href="seller-products.html" class="action-card">
+                        <i class="fas fa-boxes"></i>
+                        <span>Manage Products</span>
+                    </a>
+                    <a href="seller-settings.html" class="action-card">
+                        <i class="fas fa-store"></i>
+                        <span>Store Settings</span>
+                    </a>
+                    <a href="seller-payments.html" class="action-card">
+                        <i class="fas fa-wallet"></i>
+                        <span>Payment Setup</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value">1,245</span>
+                        <span class="stat-label">Product Views</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value">48</span>
+                        <span class="stat-label">Total Orders</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value">R51300.00</span>
+                        <span class="stat-label">Total Earnings</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value">4.8</span>
+                        <span class="stat-label">Average Rating</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-orders">
+                <h2>Recent Orders</h2>
+                <div class="orders-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#SAS78945</td>
+                                <td>Karabo Mashego</td>
+                                <td>Oct 12, 2023</td>
+                                <td>R1600.00</td>
+                                <td><span class="status shipped">Shipped</span></td>
+                                <td><a href="#" class="view-btn">View</a></td>
+                            </tr>
+                            <!-- More order rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="seller.js"></script>
+</body>
+</html>
